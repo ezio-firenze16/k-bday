@@ -1,0 +1,197 @@
+/* ==================================
+   GLOBAL NAV (ALWAYS ON TOP)
+================================== */
+.global-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 5vw;
+  z-index: 105; /* Must be higher than the overlay */
+  mix-blend-mode: difference;
+  pointer-events: none; /* Let clicks pass through empty space */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* THEME TOGGLE */
+.nav-theme-toggle {
+  pointer-events: auto;
+}
+
+.theme-btn {
+  color: #fff;
+  opacity: 0.5;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s var(--ease-cinematic);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theme-btn:hover {
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+/* ==================================
+   DESKTOP LINKS
+================================== */
+.nav-list {
+  display: flex;
+  gap: 2.5rem;
+  pointer-events: auto;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  opacity: 1;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform-origin: left;
+  animation: line-grow 0.6s var(--ease-cinematic) forwards;
+}
+
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ==================================
+   MOBILE UTILITIES & HIDDEN STATES
+================================== */
+.mobile-only {
+  display: none;
+}
+
+/* ==================================
+   MOBILE CUSTOM TOGGLE BUTTON
+================================== */
+.mobile-menu-toggle {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 106;
+}
+
+.menu-line {
+  height: 1px;
+  background-color: #fff;
+  transition: all 0.5s var(--ease-cinematic);
+}
+
+/* Asymmetrical lines for editorial look */
+.menu-line:nth-child(1) {
+  width: 32px;
+}
+.menu-line:nth-child(2) {
+  width: 22px;
+}
+
+/* Morph into an 'X' when open */
+.menu-line.open:nth-child(1) {
+  transform: translateY(3.5px) rotate(45deg);
+  width: 32px;
+}
+
+.menu-line.open:nth-child(2) {
+  transform: translateY(-3.5px) rotate(-45deg);
+  width: 32px;
+}
+
+/* ==================================
+   MOBILE MENU OVERLAY
+================================== */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg); /* Adapts to Dark or Light theme */
+  z-index: 104; /* Sits right beneath the global nav so the toggle and theme button stay visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0 0 100% 0); /* Hidden by default (sweeps from top) */
+  /* Re-apply grain so the overlay matches the premium feel */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+.mobile-menu-content {
+  text-align: center;
+  width: 100%;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mobile-nav-link {
+  font-size: 2.5rem;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.5;
+  transition:
+    opacity 0.3s ease,
+    color 0.3s ease;
+  display: inline-block;
+}
+
+.mobile-nav-link.active {
+  opacity: 1;
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* ==================================
+   RESPONSIVE BREAKPOINTS
+================================== */
+@media (max-width: 768px) {
+  .global-nav {
+    padding: 1.5rem 5vw;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+}

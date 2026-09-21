@@ -1,0 +1,363 @@
+.jfy-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 25vh;
+  padding-bottom: 20vh;
+  position: relative;
+  overflow: hidden; /* Contains the absolute floating decorations */
+}
+
+/* ==================================
+   FLOATING DECORATIONS
+================================== */
+.jfy-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.jfy-decor {
+  position: absolute;
+  opacity: 0;
+  animation: floatJfy 7s ease-in-out infinite;
+}
+
+@keyframes floatJfy {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot));
+  }
+  50% {
+    transform: translateY(-30px) rotate(var(--rot));
+  }
+}
+
+.jd-1 {
+  top: 20vh;
+  left: 12vw;
+  color: var(--accent-soft);
+  width: 60px;
+  height: 60px;
+  --rot: -15deg;
+  animation-delay: 0s;
+}
+.jd-1 svg {
+  width: 100%;
+  height: 100%;
+}
+.jd-2 {
+  top: 40vh;
+  right: 10vw;
+  color: var(--accent);
+  font-size: 2.5rem;
+  --rot: 20deg;
+  animation-delay: -2s;
+  opacity: 0.6;
+}
+.jd-3 {
+  top: 90vh;
+  left: 6vw;
+  color: var(--text-muted);
+  width: 45px;
+  height: 45px;
+  --rot: 35deg;
+  animation-delay: -1s;
+  opacity: 0.4;
+}
+.jd-3 svg {
+  width: 100%;
+  height: 100%;
+}
+.jd-4 {
+  top: 125vh;
+  right: 8vw;
+  color: var(--accent-soft);
+  font-size: 2rem;
+  --rot: -10deg;
+  animation-delay: -3s;
+  opacity: 0.8;
+}
+.jd-5 {
+  top: 155vh;
+  left: 15vw;
+  color: var(--accent);
+  width: 70px;
+  height: 70px;
+  --rot: 25deg;
+  animation-delay: -4s;
+  opacity: 0.7;
+}
+.jd-5 svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Elevate actual content over decorations */
+.jfy-hero,
+.jfy-video-section,
+.jfy-note-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================
+   HERO
+================================== */
+.jfy-hero {
+  padding: 0 5vw 5vh;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.jfy-desc {
+  margin-top: 2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================================
+   CUSTOM VIDEO PLAYER
+================================== */
+.jfy-video-section {
+  padding: 0 5vw 15vh;
+  display: flex;
+  justify-content: center;
+}
+
+.video-player-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16/9;
+  background-color: #050505;
+  border: 1px solid var(--border);
+  border-radius: 16px; /* Softened corners */
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15); /* Premium drop shadow */
+  cursor: pointer;
+  transition:
+    transform 0.6s var(--ease-cinematic),
+    box-shadow 0.6s var(--ease-cinematic);
+}
+
+.video-player-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.custom-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-controls-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 40%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.video-controls-overlay.visible {
+  opacity: 1;
+}
+
+.center-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 2rem;
+  transition: all 0.4s var(--ease-cinematic);
+}
+
+.video-player-container:hover .center-play-btn {
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: var(--accent); /* Changes to Sage Green / Accent on hover */
+  border-color: var(--accent);
+}
+
+.bottom-controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  width: 100%;
+}
+
+.v-btn {
+  color: #fff;
+  opacity: 0.8;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.v-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  color: var(--accent-soft); /* Blush tint on hover */
+}
+
+/* Scrub Bar */
+.v-progress-container {
+  flex-grow: 1;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  position: relative;
+}
+
+.v-progress-bar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  margin: 0;
+}
+
+.v-progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.v-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-soft) 0%, var(--accent) 100%);
+  border-radius: 3px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==================================
+   FINAL NOTE CARD (UPGRADED)
+================================== */
+.jfy-note-section {
+  padding: 0 5vw;
+  display: flex;
+  justify-content: center;
+}
+
+.jfy-note-card {
+  max-width: 750px;
+  background-color: var(--surface); /* Pure white in light mode */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 5rem 10%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  position: relative;
+  transition:
+    transform 0.6s var(--ease-cinematic),
+    box-shadow 0.6s var(--ease-cinematic);
+}
+
+.jfy-note-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--accent); /* Sage green top edge */
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.jfy-note-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.note-heading {
+  margin-bottom: 3rem;
+  color: var(--text);
+}
+
+.note-body {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.note-signature {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--accent-soft); /* Blush signature */
+}
+
+.note-signature .font-script:first-child {
+  font-size: 2rem;
+}
+
+.note-signature .signature-name {
+  font-size: 4rem;
+  margin-top: -15px;
+}
+
+/* ==================================
+   RESPONSIVE (MOBILE)
+================================== */
+@media (max-width: 768px) {
+  .jfy-page {
+    padding-top: 20vh;
+  }
+
+  .bottom-controls-bar {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .center-play-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .jfy-note-card {
+    padding: 3.5rem 8%;
+  }
+
+  .jfy-decorations {
+    display: none;
+  }
+}

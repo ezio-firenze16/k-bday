@@ -1,0 +1,62 @@
+:root {
+  /*
+    Dark Theme (Default)
+    Cinematic, charcoal, warm highlights
+  */
+  --color-dark-bg: #0d0c0c;
+  --color-dark-surface: #171615;
+  --color-dark-text: #f4f0ea;
+  --color-dark-text-muted: #a39c93;
+  --color-dark-accent: #b58d71;
+  --color-dark-accent-soft: #d4a3a3;
+  --color-dark-border: rgba(244, 240, 234, 0.08);
+  --color-dark-overlay: rgba(13, 12, 12, 0.85);
+
+  /*
+    Light Theme (Premium Pastel Update)
+    Airy, pastel blush, soft sage, and editorial white
+  */
+  --color-light-bg: #faf5f5;
+  --color-light-surface: #ffffff;
+  --color-light-text: #594a4e;
+  --color-light-text-muted: #a59296;
+  --color-light-accent: #9cb4a6;
+  /* UPDATED: Deeper pastel blush for better readability */
+  --color-light-accent-soft: #c88f96;
+  --color-light-border: rgba(89, 74, 78, 0.1);
+  --color-light-overlay: rgba(250, 245, 245, 0.85);
+
+  /* Active Theme Variables (default mapping to dark) */
+  --bg: var(--color-dark-bg);
+  --surface: var(--color-dark-surface);
+  --text: var(--color-dark-text);
+  --text-muted: var(--color-dark-text-muted);
+  --accent: var(--color-dark-accent);
+  --accent-soft: var(--color-dark-accent-soft);
+  --border: var(--color-dark-border);
+  --overlay: var(--color-dark-overlay);
+
+  /* Typography */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-script: "Alex Brush", cursive;
+
+  /* Easing */
+  --ease-cinematic: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Grain Intensity */
+  --grain-opacity: 0.04;
+}
+
+[data-theme="light"] {
+  --bg: var(--color-light-bg);
+  --surface: var(--color-light-surface);
+  --text: var(--color-light-text);
+  --text-muted: var(--color-light-text-muted);
+  --accent: var(--color-light-accent);
+  --accent-soft: var(--color-light-accent-soft);
+  --border: var(--color-light-border);
+  --overlay: var(--color-light-overlay);
+  --grain-opacity: 0.06;
+}

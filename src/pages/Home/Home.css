@@ -1,0 +1,431 @@
+.home-container {
+  width: 100%;
+  padding-bottom: 10vh;
+  position: relative;
+  overflow: hidden; /* Contains the absolute decorations */
+}
+
+/* Elevate main content above decorations */
+.home-hero,
+.home-note,
+.home-directory {
+  position: relative;
+  z-index: 2;
+}
+
+.word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+  margin-right: 0.2em;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+/* ==================================
+   FULL PAGE DECORATIONS
+================================== */
+.home-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.h-decor {
+  position: absolute;
+  opacity: 0;
+  animation: floatHome 7s ease-in-out infinite;
+}
+
+@keyframes floatHome {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot));
+  }
+  50% {
+    transform: translateY(-30px) rotate(var(--rot));
+  }
+}
+
+/* Hero Decor */
+.hd-1 {
+  top: 25vh;
+  left: 8vw;
+  color: var(--accent-soft);
+  width: 60px;
+  height: 60px;
+  --rot: -15deg;
+  animation-delay: 0s;
+}
+.hd-1 svg {
+  width: 100%;
+  height: 100%;
+}
+.hd-2 {
+  top: 18vh;
+  right: 45vw;
+  color: var(--accent);
+  font-size: 2rem;
+  --rot: 10deg;
+  animation-delay: -2s;
+  opacity: 0.6;
+}
+.hd-3 {
+  top: 65vh;
+  right: 5vw;
+  color: var(--accent-soft);
+  width: 80px;
+  height: 80px;
+  --rot: 25deg;
+  animation-delay: -1s;
+  opacity: 0.8;
+}
+.hd-3 svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Note Decor */
+.hd-4 {
+  top: 105vh;
+  left: 4vw;
+  color: var(--text-muted);
+  font-size: 3rem;
+  --rot: 45deg;
+  animation-delay: -3s;
+  opacity: 0.3;
+}
+.hd-5 {
+  top: 125vh;
+  right: 8vw;
+  color: var(--accent-soft);
+  width: 50px;
+  height: 50px;
+  --rot: -20deg;
+  animation-delay: -4s;
+}
+.hd-5 svg {
+  width: 100%;
+  height: 100%;
+}
+.hd-6 {
+  top: 160vh;
+  left: 45vw;
+  color: var(--accent);
+  font-size: 2.5rem;
+  --rot: -10deg;
+  animation-delay: -1.5s;
+  opacity: 0.5;
+}
+
+/* Directory Decor */
+.hd-7 {
+  top: 200vh;
+  right: 12vw;
+  color: var(--accent-soft);
+  width: 70px;
+  height: 70px;
+  --rot: 15deg;
+  animation-delay: -0.5s;
+}
+.hd-7 svg {
+  width: 100%;
+  height: 100%;
+}
+.hd-8 {
+  top: 220vh;
+  left: 10vw;
+  color: var(--text-muted);
+  font-size: 2rem;
+  --rot: 30deg;
+  animation-delay: -2.5s;
+  opacity: 0.4;
+}
+.hd-9 {
+  top: 245vh;
+  left: 50vw;
+  color: var(--accent-soft);
+  width: 45px;
+  height: 45px;
+  --rot: -25deg;
+  animation-delay: -3.5s;
+}
+.hd-9 svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================================
+   HERO
+================================== */
+.home-hero {
+  min-height: 100vh;
+  padding: 25vh 5vw 10vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+  align-items: center;
+}
+
+.hero-label {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--accent-soft);
+  display: block;
+  margin-bottom: -1rem;
+  transform: rotate(-5deg);
+  opacity: 1;
+}
+
+.hero-title {
+  color: var(--text);
+  margin-bottom: 3rem;
+}
+
+.hero-subtext {
+  max-width: 400px;
+}
+
+.hero-subtext h2 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.hero-subtext p {
+  color: var(--text-muted);
+}
+
+.parallax-container {
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  border-radius: 8px; /* Slightly softer radius for pastel theme */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); /* Premium shadow */
+}
+
+.parallax-img {
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(-10%);
+}
+
+/* Beautiful placeholders replacing the dark boxes */
+.bg-image-1 {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg) 100%);
+}
+.bg-image-2 {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--bg) 100%);
+}
+
+/* ==================================
+   NOTE / POLAROID
+================================== */
+.home-note {
+  padding: 10vh 5vw;
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  gap: 8vw;
+  align-items: center;
+}
+
+.polaroid {
+  background-color: var(--surface);
+  padding: 1.5rem 1.5rem 4.5rem 1.5rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transform: rotate(-2deg);
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  transition: transform 0.5s var(--ease-cinematic);
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) translateY(-10px);
+}
+
+.polaroid-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background-color: var(--surface);
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+}
+
+.polaroid-caption {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--text);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.heart-icon {
+  color: var(--accent-soft); /* Deeper blush for heart */
+  width: 24px;
+  height: 24px;
+}
+
+.polaroid-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(2deg);
+  width: 90px;
+  height: 28px;
+  background-color: var(--accent-soft);
+  opacity: 0.6;
+  backdrop-filter: blur(2px);
+}
+
+.note-body {
+  margin: 2rem 0;
+  max-width: 500px;
+}
+
+.note-signature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.signature-name {
+  font-size: 3.5rem;
+  color: var(--accent-soft); /* Deep blush signature */
+  margin-top: -10px;
+}
+
+/* ==================================
+   DIRECTORY
+================================== */
+.home-directory {
+  padding: 15vh 5vw;
+}
+
+.directory-list {
+  border-top: 1px solid var(--border);
+}
+
+.directory-item-wrapper {
+  border-bottom: 1px solid var(--border);
+}
+
+.directory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  transition: padding-left 0.4s var(--ease-cinematic);
+}
+
+.directory-item:hover {
+  padding-left: 2rem;
+}
+
+.dir-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.dir-num {
+  font-size: 0.9rem;
+  color: var(--accent); /* Sage green numbers */
+  font-weight: 500;
+  margin-top: 0.6rem;
+}
+
+.dir-title {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
+  color: var(--text);
+}
+
+.dir-right {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.dir-sub {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Premium Button Styling for Directory Arrow */
+.dir-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.directory-item:hover .dir-icon-wrapper {
+  background-color: var(--accent); /* Sage green hover */
+  color: var(--surface); /* White icon */
+  border-color: var(--accent);
+  transform: translateX(-10px) rotate(-45deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 25vh;
+  }
+  .hero-label {
+    transform: none;
+    margin-bottom: 1rem;
+  }
+  .hero-subtext {
+    margin: 0 auto;
+  }
+  .note-grid {
+    grid-template-columns: 1fr;
+  }
+  .polaroid {
+    max-width: 90%;
+  }
+  .dir-right {
+    display: none;
+  }
+  .directory-item:hover {
+    padding-left: 1rem;
+  }
+  .directory-item {
+    padding: 2rem 0;
+  }
+  .home-decorations {
+    display: none; /* Hide on mobile to prevent clutter */
+  }
+}

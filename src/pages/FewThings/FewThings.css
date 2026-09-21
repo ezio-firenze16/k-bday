@@ -1,0 +1,224 @@
+.things-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 25vh;
+  padding-bottom: 20vh;
+}
+
+/* ==================================
+   HERO
+================================== */
+.things-hero {
+  padding: 0 5vw 15vh;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.things-desc {
+  margin-top: 2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================================
+   EDITORIAL GRID & PREMIUM CARDS
+================================== */
+.things-grid-section {
+  padding: 0 5vw;
+}
+
+.things-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8vw 5vw;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.thing-card:nth-child(even) {
+  margin-top: 15vh;
+}
+
+.thing-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: var(--surface); /* Pure white in light mode */
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.6s var(--ease-cinematic),
+    box-shadow 0.6s var(--ease-cinematic);
+}
+
+.thing-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12); /* Softer shadow for floating effect */
+}
+
+/* ==================================
+   IMAGE & HOVER DYNAMICS
+================================== */
+.thing-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Creative Animated Accent Line (Sage Green in Light Mode) */
+.thing-image-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: var(--accent);
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.thing-card:hover .thing-image-wrapper::after {
+  transform: scaleX(1);
+}
+
+.thing-image {
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s var(--ease-cinematic);
+  transform-origin: center;
+}
+
+/* Beautiful pastel gradient placeholder instead of a black box */
+.bg-placeholder {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--bg) 100%);
+}
+
+.thing-card:hover .thing-image {
+  transform: scale(1.05);
+}
+
+/* ==================================
+   CONTENT & TYPOGRAPHY
+================================== */
+.thing-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem 2rem; /* Give the text room to breathe inside the card */
+}
+
+.thing-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.thing-card:hover .thing-header {
+  transform: translateX(10px);
+}
+
+.thing-number {
+  font-size: 1.1rem;
+  color: var(--accent); /* Sage green numbers */
+  font-weight: 500;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.thing-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.thing-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  transition: transform 0.6s var(--ease-cinematic);
+  transition-delay: 0.05s;
+}
+
+.thing-card:hover .thing-body {
+  transform: translateX(10px);
+}
+
+.thing-desc {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+/* Beautiful Pastel Arrow Button */
+.thing-arrow {
+  color: var(--accent);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg); /* Blush circle */
+  border-radius: 50%;
+  transition: all 0.6s var(--ease-cinematic);
+  flex-shrink: 0;
+}
+
+.thing-card:hover .thing-arrow {
+  background-color: var(--accent); /* Turns Sage Green on hover */
+  color: var(--surface); /* Arrow turns white */
+  transform: translateX(10px) rotate(-45deg);
+}
+
+/* ==================================
+   RESPONSIVE (MOBILE)
+================================== */
+@media (max-width: 768px) {
+  .things-page {
+    padding-top: 20vh;
+  }
+
+  .things-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 8vh 0;
+  }
+
+  .thing-card:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .thing-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .thing-card:hover .thing-header,
+  .thing-card:hover .thing-body {
+    transform: none;
+  }
+
+  .thing-card:hover .thing-image-wrapper::after {
+    transform: scaleX(1); /* Keep the line animation on mobile! */
+  }
+
+  .thing-card:hover .thing-arrow {
+    transform: rotate(-45deg);
+  }
+
+  .thing-title {
+    font-size: 2.2rem;
+  }
+}

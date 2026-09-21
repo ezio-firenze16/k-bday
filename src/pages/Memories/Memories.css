@@ -1,0 +1,363 @@
+.memories-page {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 25vh;
+  padding-bottom: 20vh;
+  position: relative;
+  overflow: hidden; /* Contains the absolute floating decorations */
+}
+
+/* ==================================
+   FLOATING DECORATIONS
+================================== */
+.memories-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.m-decor {
+  position: absolute;
+  opacity: 0;
+  animation: floatMemories 8s ease-in-out infinite;
+}
+
+@keyframes floatMemories {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot));
+  }
+  50% {
+    transform: translateY(-30px) rotate(var(--rot));
+  }
+}
+
+.md-1 {
+  top: 20vh;
+  left: 10vw;
+  color: var(--accent-soft);
+  width: 65px;
+  height: 65px;
+  --rot: -20deg;
+  animation-delay: 0s;
+}
+.md-1 svg {
+  width: 100%;
+  height: 100%;
+}
+.md-2 {
+  top: 45vh;
+  right: 8vw;
+  color: var(--accent);
+  font-size: 2.5rem;
+  --rot: 15deg;
+  animation-delay: -2s;
+  opacity: 0.6;
+}
+.md-3 {
+  top: 75vh;
+  left: 6vw;
+  color: var(--text-muted);
+  width: 45px;
+  height: 45px;
+  --rot: 35deg;
+  animation-delay: -1s;
+  opacity: 0.4;
+}
+.md-3 svg {
+  width: 100%;
+  height: 100%;
+}
+.md-4 {
+  top: 120vh;
+  right: 12vw;
+  color: var(--accent-soft);
+  font-size: 2rem;
+  --rot: -10deg;
+  animation-delay: -3s;
+  opacity: 0.7;
+}
+.md-5 {
+  top: 160vh;
+  left: 8vw;
+  color: var(--accent);
+  width: 75px;
+  height: 75px;
+  --rot: 25deg;
+  animation-delay: -4s;
+  opacity: 0.8;
+}
+.md-5 svg {
+  width: 100%;
+  height: 100%;
+}
+.md-6 {
+  top: 190vh;
+  right: 15vw;
+  color: var(--text-muted);
+  font-size: 3rem;
+  --rot: 45deg;
+  animation-delay: -1.5s;
+  opacity: 0.3;
+}
+
+/* Elevate actual content over decorations */
+.memories-hero,
+.timeline-section {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================================
+   HERO
+================================== */
+.memories-hero {
+  padding: 0 5vw 10vh;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.memories-desc {
+  margin-top: 2rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==================================
+   TIMELINE
+================================== */
+.timeline-section {
+  padding: 0 5vw;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10vh 0;
+}
+
+.timeline-line-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: var(--border);
+  transform: translateX(-50%);
+}
+
+.timeline-line-active {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: var(--accent);
+  transform: translateX(-50%);
+  transform-origin: top center;
+}
+
+/* ==================================
+   MEMORY ITEMS & HOVER EFFECTS
+================================== */
+.memory-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15vh;
+  cursor: pointer;
+}
+
+.memory-item:last-child {
+  margin-bottom: 0;
+}
+
+.memory-item.right {
+  justify-content: flex-end;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--bg);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+  transition: all 0.4s var(--ease-cinematic);
+}
+
+.memory-item:hover .timeline-dot {
+  background-color: var(--accent); /* Dot fills with Sage Green on hover */
+  transform: translate(-50%, -50%) scale(1.5);
+  box-shadow: 0 0 15px var(--accent-soft);
+}
+
+.memory-content {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.memory-item.right .memory-content {
+  align-items: flex-start;
+}
+
+/* ==================================
+   POLAROID STYLING
+================================== */
+.memory-polaroid {
+  background-color: var(--surface); /* Pure white in light mode */
+  padding: 1.2rem 1.2rem 3.5rem 1.2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--border);
+
+  /* Uses the CSS variable passed from JSX for initial rotation */
+  transform: rotate(var(--base-rot));
+  transition:
+    transform 0.6s var(--ease-cinematic),
+    box-shadow 0.6s var(--ease-cinematic);
+}
+
+/* When the entire memory item is hovered, straighten and float the polaroid */
+.memory-item:hover .memory-polaroid {
+  transform: rotate(0deg) translateY(-15px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.memory-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background-color: var(--surface);
+}
+
+/* Pastel gradient placeholder */
+.memory-img.img-placeholder {
+  width: 100%;
+  height: 130%;
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    var(--accent-soft) 100%
+  );
+  transform: translateY(-15%);
+}
+
+.memory-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.memory-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 90px;
+  height: 28px;
+  background-color: var(--accent-soft);
+  opacity: 0.7;
+  backdrop-filter: blur(3px);
+  z-index: 2;
+}
+
+/* ==================================
+   TEXT STYLING
+================================== */
+.memory-text {
+  max-width: 400px;
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+/* Shift text slightly on hover for editorial dynamic feel */
+.memory-item.left:hover .memory-text {
+  transform: translateX(-10px);
+}
+.memory-item.right:hover .memory-text {
+  transform: translateX(10px);
+}
+
+.memory-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.memory-desc {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==================================
+   RESPONSIVE DESIGN (MOBILE)
+================================== */
+@media (max-width: 768px) {
+  .memories-page {
+    padding-top: 20vh;
+  }
+
+  .timeline-line-bg,
+  .timeline-line-active {
+    left: 20px;
+    transform: none;
+  }
+
+  .timeline-dot {
+    left: 20px;
+    transform: translate(-50%, 0);
+    top: 0;
+    margin-top: 2.5rem;
+  }
+
+  /* Reset dot hover transform to center on Y-axis for mobile */
+  .memory-item:hover .timeline-dot {
+    transform: translate(-50%, 0) scale(1.3);
+  }
+
+  .memory-item,
+  .memory-item.right {
+    justify-content: flex-end;
+    margin-bottom: 10vh;
+  }
+
+  .memory-content {
+    width: calc(100% - 60px);
+  }
+
+  .memory-polaroid {
+    max-width: 100%;
+  }
+
+  .memory-text {
+    max-width: 100%;
+  }
+
+  .memories-decorations {
+    display: none; /* Keep mobile clean */
+  }
+
+  /* Disable text shifting on mobile */
+  .memory-item.left:hover .memory-text,
+  .memory-item.right:hover .memory-text {
+    transform: none;
+  }
+}
