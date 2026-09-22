@@ -2,9 +2,9 @@ export const homeData = {
   hero: {
     label: "For You",
     title: "Happy Birthday",
-    subtitle: "To My Favourite Person",
+    subtitle: "To My Sundari Mundri",
     description:
-      "A day to celebrate you—the kindest, most beautiful, most special human in my life.",
+      "A day to celebrate you - the person who makes me feel loved, understood, and cared for.",
   },
   note: {
     label: "A LITTLE NOTE SUWAR",
