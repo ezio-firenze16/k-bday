@@ -7,7 +7,7 @@ export const homeData = {
       "A day to celebrate you—the kindest, most beautiful, most special human in my life.",
   },
   note: {
-    label: "A LITTLE NOTE",
+    label: "A LITTLE NOTE SUWAR",
     heading: "You Make Everything Brighter.",
     body: "On your special day, I just want you to know how incredibly special you are. You bring so much joy, kindness and happiness into my life. I'm so lucky to have you. Here's to you, today and always.",
     signoff: "With all my love,",

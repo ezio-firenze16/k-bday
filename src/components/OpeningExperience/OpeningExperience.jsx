@@ -123,10 +123,10 @@ export default function OpeningExperience({ onComplete }) {
         </svg>
 
         <h1 className="opening-title font-serif" ref={titleRef}>
-          For you.
+          For You Khushi.
         </h1>
         <p className="opening-subtitle font-serif" ref={subtitleRef}>
-          just a little something.
+          Life is Enjoy.
         </p>
       </div>
     </div>

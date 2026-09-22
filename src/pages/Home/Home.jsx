@@ -148,7 +148,11 @@ export default function Home() {
 
           <div className="hero-image-wrapper">
             <div className="img-placeholder parallax-container">
-              <div className="parallax-img bg-image-1"></div>
+              <img
+                src="/assets/images/1.jpeg"
+                alt="Hero landscape"
+                className="parallax-img"
+              />
             </div>
           </div>
         </section>
@@ -159,7 +163,11 @@ export default function Home() {
             <div className="note-image">
               <div className="polaroid">
                 <div className="polaroid-img-wrapper">
-                  <div className="polaroid-img bg-image-2"></div>
+                  <img
+                    src="/assets/images/2.jpeg"
+                    alt="My happy place"
+                    className="polaroid-img"
+                  />
                 </div>
                 <div className="polaroid-caption font-script">
                   {homeData.polaroid.caption}{" "}

@@ -20,6 +20,13 @@
   margin-right: 0.2em;
 }
 
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .section-label {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
@@ -204,17 +211,20 @@
 
 .parallax-container {
   width: 100%;
-  height: 70vh;
+  max-width: 420px; /* Prevents the vertical image from getting too massive */
+  aspect-ratio: 3 / 4; /* Changes the box to a classic portrait ratio */
+  height: auto; /* Overrides the old 70vh */
   overflow: hidden;
-  border-radius: 8px; /* Slightly softer radius for pastel theme */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); /* Premium shadow */
+  border-radius: 16px; /* Softened corners for the pastel aesthetic */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
 }
 
 .parallax-img {
   width: 100%;
-  height: 120%;
-  background-size: cover;
-  background-position: center;
+  height: 120%; /* This extra 20% is required for the scroll animation */
+  object-fit: cover;
+  object-position: center; /* Keeps her and the cake perfectly centered */
+  display: block;
   transform: translateY(-10%);
 }
 
@@ -427,5 +437,8 @@
   }
   .home-decorations {
     display: none; /* Hide on mobile to prevent clutter */
+  }
+  .parallax-container {
+    max-width: 85%; /* Slightly smaller on phones to give it breathing room */
   }
 }
