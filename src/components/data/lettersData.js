@@ -3,21 +3,24 @@ export const lettersData = {
     title: "Letters",
     subtitle: "Words from my heart",
     description:
-      "A collection of thoughts, feelings, and moments I wanted to write down for you. Some are from the past, some are for today, and all of them are true.",
+      "Sum are from the past, some are for the future, some are for today, and all of them are true.",
   },
   collection: [
     {
       id: "l1",
-      date: "OCT 14, 2023",
+      date: "JAN 01, 2026",
       category: "Just Because",
       title: "The Little Things",
       excerpt:
-        "I was just thinking about the way you laugh at your own jokes before you even finish telling them...",
+        "I was just thinking about all the little things you do for me—the effort you put in, the way you surprise me...",
       content: [
-        "I was just thinking about the way you laugh at your own jokes before you even finish telling them. It's honestly one of my favorite sounds in the world.",
-        "It's these little things—the way you hold your coffee cup, the way your eyes light up when you talk about something you love, and the quiet moments we share when no words are needed.",
-        "I don't always say it out loud, but I notice all of it. And every time I do, I realize how incredibly lucky I am to have you.",
-        "Thank you for being exactly who you are.",
+        "I was just thinking about all the little things you do for me—the effort you put in, the way you surprise me, and the way you always care about my feelings.",
+        "I still remember my first surprise from you—the bouquet, cake, and letter. And then the HTML file, all the photos and videos you send even when you're busy, the cute names you call me, and those little “sorry, husband” messages whenever I'm angry, just to make me smile again. ❤️",
+        "I love how you always try to make my mood better, listen to all my stories, appreciate the things I share with you, watch movies that might be boring to you, and even listen to me sing when you know I'm not exactly a good singer. 😂",
+        "I love how you react to my silly reels, care about my feelings, and make me feel heard and appreciated. And most of all, I love how you motivate me for my future and always make me feel supported and loved.",
+        "I don't always say it out loud, but I notice everything—every effort, every message, every little surprise, and every moment you make time for me.",
+        "And every time I notice it, I realize how incredibly lucky I am to have you.",
+        "Thank you for being exactly who you are. ❤️",
       ],
     },
     {
