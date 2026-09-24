@@ -3,7 +3,7 @@ export const lettersData = {
     title: "Letters",
     subtitle: "Words from my heart",
     description:
-      "Sum are from the past, some are for the future, some are for today, and all of them are true.",
+      "Some are from the past, some are for the future, some are for today, and all of them are true.",
   },
   collection: [
     {
