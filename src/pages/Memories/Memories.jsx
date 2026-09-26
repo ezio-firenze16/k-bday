@@ -156,7 +156,11 @@ export default function Memories() {
                   >
                     <div className="memory-tape"></div>
                     <div className="memory-img-wrapper parallax-container">
-                      <div className="memory-img img-placeholder"></div>
+                      <img
+                        src={memory.image}
+                        alt={memory.title}
+                        className="memory-img"
+                      />
                     </div>
                     <div className="memory-caption font-script">
                       {memory.date}

@@ -246,14 +246,11 @@
 }
 
 /* Pastel gradient placeholder */
-.memory-img.img-placeholder {
+.memory-img {
   width: 100%;
-  height: 130%;
-  background: linear-gradient(
-    135deg,
-    var(--accent) 0%,
-    var(--accent-soft) 100%
-  );
+  height: 130%; /* Required for the GSAP scroll parallax */
+  object-fit: cover;
+  display: block;
   transform: translateY(-15%);
 }
 
