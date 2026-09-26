@@ -31,7 +31,7 @@ export const lettersData = {
       excerpt:
         "Our first Valentine’s Day will still be a little far away, and by then we’ll be miles apart, but I know you’ll still feel just as...",
       content: [
-        "Our first Valentine’s Day will still be a little far away, and by then we’ll be miles apart, but I know you’ll still feel just as close to me as close to me. ❤️",
+        "Our first Valentine’s Day will still be a little far away, and by then we’ll be miles apart, but I know you’ll still feel just as close to me. ❤️",
         "It’ll be our first Valentine’s together, and I’m already excited to make it special in our own little way. Even with the distance, I know we’ll find a way to share the day, make each other smile, and create a memory that belongs only to us.",
         "And honestly, I think there’s something beautiful about knowing that no matter where we are, I’ll still have you to celebrate, love, and look forward to. ❤️",
       ],
