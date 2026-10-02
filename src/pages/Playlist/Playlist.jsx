@@ -27,7 +27,17 @@ export default function Playlist() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState("0:00");
-  const [favorites, setFavorites] = useState(["01", "03"]);
+
+  // Initialize favorites from localStorage
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem("playlistFavorites");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
+
+  // Save to localStorage whenever favorites change
+  useEffect(() => {
+    localStorage.setItem("playlistFavorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
