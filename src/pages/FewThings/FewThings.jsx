@@ -54,8 +54,7 @@ export default function FewThings() {
     return () => ctx.revert();
   }, []);
 
-  // Lock body scroll when modal is open
-  // Lock body & html scroll when modal is open (Fixes mobile Safari/Chrome bug)
+  // Lock body & html scroll when modal is open
   useEffect(() => {
     if (selectedItem) {
       document.body.style.overflow = "hidden";
