@@ -13,11 +13,11 @@ export const justForYouData = {
   message: {
     heading: "My Final Note",
     body: [
-      "I hope you enjoyed scrolling through this little world.",
-      "I wanted to create something that wasn't just a physical gift, but a space you could visit whenever you wanted to be reminded of how much you mean to me.",
-      "Moni and I spent a lot of time putting this together, making sure every little detail felt right—just for you.",
-      "Thank you for being the most incredible person in my life. I can't wait to see what this next year brings for us.",
-      "Happy Birthday. I love you.",
+      "Finally after writing all those little things about you, I still feel like there’s so much more I could say. ❤️",
+      "You’ve become someone really special to me, and every laugh, every conversation, every random picture, and every little moment we’ve shared means so much to me. I’m genuinely so happy that you came into my life.",
+      "I don’t know what the future holds, but I know I want to make many more memories with you — more laughs, more adventures, more stupid moments, and simply more us. ❤️",
+      "Now look straight into the camera, smile, and read the last line backwards, slowly…",
+      "GF my be you will? ❤️",
     ],
     signature: "Kunal❤️",
   },
