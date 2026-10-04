@@ -8,6 +8,7 @@ import FilmGrain from "./components/FilmGrain/FilmGrain";
 import OpeningExperience from "./components/OpeningExperience/OpeningExperience";
 import SmoothScroll from "./components/SmoothScroll/SmoothScroll";
 import Navigation from "./components/Navigation/Navigation";
+import GlobalAudio from "./components/GlobalAudio/GlobalAudio";
 
 // Pages
 import Home from "./pages/Home/Home";
@@ -30,6 +31,9 @@ function App() {
     <ThemeProvider>
       <CustomCursor />
       <FilmGrain />
+
+      {/* Background music player triggered by intro finishing */}
+      <GlobalAudio playTrigger={introComplete} />
 
       {!introComplete && <OpeningExperience onComplete={handleIntroComplete} />}
 
