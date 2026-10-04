@@ -7,7 +7,7 @@ export const justForYouData = {
   },
   video: {
     // Drop your video file into the public folder (e.g., public/assets/videos/message.mp4)
-    src: "/assets/videos/message.mp4",
+    src: "/assets/videos/jfy.mp4",
     poster: "/assets/images/video-poster.jpg",
   },
   message: {
